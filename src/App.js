@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navigation from './components/Navigation'
 import Home from './components/Home'
 import {
@@ -9,11 +9,21 @@ import {
 } from "react-router-dom";
 import ShopList from './components/ShopList';
 import CartList from './components/CartList';
+import {data} from "./data";
+import { ProductContext } from "./contexts/ProductContext";
+import { CartContext } from "./contexts/CartContext";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import  ProductPage from './components/ProductPage'
 
 
 function App() {
+
+  const [products] = useState(data)
+  const [cart, setCart] = useState([])
+
   return (
-    <div>
+    <div >
+      <ProductContext.Provider value={{products}}>
       <Navigation/>
 
       {/* Routes */}
@@ -27,8 +37,12 @@ function App() {
         <Route path='/cart'>
           <CartList/>
         </Route>
+        <Route path='/shop/:id'>
+          <ProductPage/>
+        </Route>
 
       </Switch>
+      </ProductContext.Provider>
     </div>
   );
 }

@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom'
 
 function Navigation() {
   return (
-    <nav className='border border-gray-400'>
+    <nav  >
         <div>
-            <h1 className='text-3xl text-center'>My SHOP</h1>
+            <h1 className='text-3xl text-center lg:text-left italic'>Strings</h1>
         </div>
-       <div className="-mb-px flex justify-center">
+       <div className="-mb-px flex justify-center lg:justify-end">
          <Link to='/' className="no-underline text-teal-dark border-b-2 border-teal-dark uppercase tracking-wide font-bold text-xs py-3 mr-8" >
              Home
          </Link>

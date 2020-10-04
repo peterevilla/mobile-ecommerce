@@ -14,6 +14,7 @@ import { ProductContext } from "./contexts/ProductContext";
 import { CartContext } from "./contexts/CartContext";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import  ProductPage from './components/ProductPage'
+import Guitar from './components/Guitar'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
   const [cart, setCart] = useState([])
 
   return (
-    <div >
+    <div className="font-quick lg:px-32" >
       <ProductContext.Provider value={{products}}>
       <Navigation/>
 
@@ -31,8 +32,8 @@ function App() {
         <Route exact path='/'>
           <Home/>
         </Route>
-        <Route path='/shop'>
-          <ShopList/>
+        <Route path='/guitar'>
+          <Guitar/>
         </Route>
         <Route path='/cart'>
           <CartList/>

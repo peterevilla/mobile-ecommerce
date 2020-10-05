@@ -10,7 +10,7 @@ import cart from '../components/images/cart.svg'
 
 function Navigation() {
   return (
-    <nav className="flex lg:flex-row flex-col  justify-center" >
+    <nav className="flex lg:flex-row flex-col  lg:justify-around" >
             <img className=" p-2
         " src={logo} alt="logo" />
 

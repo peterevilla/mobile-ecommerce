@@ -15,7 +15,7 @@ function Navigation() {
         " src={logo} alt="logo" />
 
        <div className="flex justify-center lg:justify-end">
-         <Link to='/' className=" lg:p-8 p-2" >
+         <Link to='/' className=" lg:p-8 p-2 " >
              Home
          </Link>
          <Link to='/guitar' className=" lg:p-8 p-2">

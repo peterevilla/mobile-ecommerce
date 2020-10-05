@@ -2,7 +2,7 @@ import React from 'react'
 
 function CartList() {
     return (
-        <div>
+        <div className="lg:p-16 flex flex-col h-screen">
             Cart List 
         </div>
     )

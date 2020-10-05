@@ -15,6 +15,8 @@ import { CartContext } from "./contexts/CartContext";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import  ProductPage from './components/ProductPage'
 import Guitar from './components/Guitar'
+import Bass from './components/Bass';
+import Synth from './components/Synth';
 
 
 function App() {
@@ -34,6 +36,12 @@ function App() {
         </Route>
         <Route path='/guitar'>
           <Guitar/>
+        </Route>
+        <Route path='/bass'>
+          <Bass/>
+        </Route>
+        <Route path='/synth'>
+          <Synth/>
         </Route>
         <Route path='/cart'>
           <CartList/>

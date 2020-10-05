@@ -1,10 +1,9 @@
 import React from 'react'
 import ProductCard from './ProductCard'
-
-function Guitar() {
+const Synth = () => {
     return (
         <div className="lg:p-16 flex flex-col h-screen">
-            <h1 className="text-5xl font-light">Guitars</h1>
+            <h1 className="text-5xl font-light">Synthesizers</h1>
             <div className="flex lg:flex-row flex-col my-8">
                 <ProductCard/>
             </div>
@@ -12,4 +11,4 @@ function Guitar() {
     )
 }
 
-export default Guitar
+export default Synth

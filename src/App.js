@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Navigation from './components/Navigation'
 import Home from './components/Home'
 import {
@@ -17,12 +17,23 @@ import  ProductPage from './components/ProductPage'
 import Guitar from './components/Guitar'
 import Bass from './components/Bass';
 import Synth from './components/Synth';
+import axios from 'axios';
 
 
 function App() {
 
-  const [products] = useState(data)
+  const [products, setProducts] = useState([])
   const [cart, setCart] = useState([])
+
+useEffect(() => {
+
+  axios
+  .get('https://strings-music-instruments-api.herokuapp.com/api/instruments')
+  .then(response => {
+    setProducts(response.data)
+  })
+  .catch(err => console.log(err))
+},[])
 
   return (
     <div className="font-quick lg:px-32" >

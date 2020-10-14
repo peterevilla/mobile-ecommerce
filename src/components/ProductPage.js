@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 
 function ProductPage(props) {
+  const [cart, setCart] = useState([])
   const paramItemId = props.match.params.id;
 
   const item = props.items.find((item) => {
     return item.id === Number(paramItemId);
   });
+  const addToCart = (item) => {
+    setCart([...cart, item])
+  }
+  console.log(cart)
   return (
     <div className="lg:p-16 flex flex-col h-screen">
       <div className="flex lg:flex-row flex-col">
@@ -18,7 +23,7 @@ function ProductPage(props) {
           <p className="text-3xl font-light">Price: ${item.price}</p>
           <p className="text-justify my-10">{item.description}</p>
           <div className=" h-10 py-1 border-black border hover:bg-black hover:text-white my-3 w-full">
-            <p className="text-center">add to cart</p>
+            <p className="text-center" onClick={() => addToCart(item)}>add to cart</p>
           </div>
         </div>
       </div>

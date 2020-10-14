@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import logo from '../components/images/logo.svg'
 import cart from '../components/images/cart.svg'
+import cartFull from '../components/images/cartFull.svg'
 
 
 
 
 
 
-function Navigation() {
+
+function Navigation({Incart}) {
   return (
     <nav className="flex lg:flex-row flex-col  lg:justify-around" >
             <img className=" p-2
@@ -27,9 +29,16 @@ function Navigation() {
          <Link to='/synth' className=" lg:p-8 p-2">
              Synth
          </Link>
-         <Link to='/cart' className=" lg:p-8 p-2">
+         {Incart ? (<Link to='/cart' className=" lg:p-8 p-2">
+             <img src={cartFull} alt="cart"/>
+             
+         </Link>): (
+             <Link to='/cart' className=" lg:p-8 p-2">
              <img src={cart} alt="cart"/>
+             
          </Link>
+         )}
+         
      </div>
     </nav>
   );

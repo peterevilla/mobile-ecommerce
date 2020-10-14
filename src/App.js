@@ -27,12 +27,13 @@ function App() {
         setProducts(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [products]);
+
 
   return (
     <div className="font-quick lg:px-32">
       <ProductContext.Provider value={{ products }}>
-        <Navigation />
+        <Navigation inCart={cart} />
 
         {/* Routes */}
         <Switch>

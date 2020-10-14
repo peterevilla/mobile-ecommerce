@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import synth_home from "./images/synth_home.svg";
-import guitar_home from "./images/guitar_home.svg";
 import cardlogo from "./images/cardlogo.svg"
 import { ProductContext } from "../contexts/ProductContext";
 
 function Home() {
   const { products } = useContext(ProductContext);
-
+ 
+  if (products.length === 0 ) {
+    return(
+      <h1 className="text-center mt-48">Loading, please wait...</h1>
+    )
+  }
 
   return (
     <div className="lg:p-16">
@@ -38,10 +41,14 @@ function Home() {
           {products.map((item) => {
             if (item.category_id === 1 && (item.id === 1 || item.id === 4)) {
               return (
+               
                 <div className="h-xl lg:w-1/2 lg:mx-2 my-1 rounded  bg-gray-100 shadow-xs  p-8 hover:bg-gray-300 flex flex-col justify-center">
+                   <Link to={`/guitar/${item.id}`}>
                   <img className="" src={`${item.img_url}`} alt="guitar" />
                   <p className="text-2xl font-bold">{item.name}</p>
+                  </Link>
                 </div>
+                
               );
             }
           })}

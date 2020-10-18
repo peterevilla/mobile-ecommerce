@@ -4,7 +4,7 @@ import { ProductContext } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
 
 function Guitar({addToCart}) {
-    const { products } = useContext(ProductContext);
+    const { products} = useContext(ProductContext);
 
     const guitars = products.filter(item => item.category_id === 1)
 
@@ -14,7 +14,7 @@ function Guitar({addToCart}) {
             <div className="flex lg:flex-row flex-col my-8">
 
                 {guitars.map(item => (
-                    <Link to={`/guitar/${item.id}`} key={item.id} ><ProductCard addToCart={addToCart} item={item}/></Link> 
+                    <Link to={`/guitar/${item.id}`} key={item.id} ><ProductCard  item={item}/></Link> 
                 ))}
                 
             </div>

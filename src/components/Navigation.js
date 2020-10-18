@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from 'react-router-dom'
 import logo from '../components/images/logo.svg'
-import cart from '../components/images/cart.svg'
+import cartEmpty from '../components/images/cartEmpty.svg'
 import cartFull from '../components/images/cartFull.svg'
+import { CartContext } from "../contexts/CartContext";
 
 
 
@@ -11,6 +12,8 @@ import cartFull from '../components/images/cartFull.svg'
 
 
 function Navigation({Incart}) {
+
+    const { cart } = useContext(CartContext);
   return (
     <nav className="flex lg:flex-row flex-col  lg:justify-around" >
             <img className=" p-2
@@ -29,12 +32,14 @@ function Navigation({Incart}) {
          <Link to='/synth' className=" lg:p-8 p-2">
              Synth
          </Link>
-         {Incart ? (<Link to='/cart' className=" lg:p-8 p-2">
-             <img src={cartFull} alt="cart"/>
+         {cart.length === 0 ? (<Link to='/cart' className=" lg:p-8 p-2">
+             <img src={cartEmpty} alt="cart"/>
              
          </Link>): (
-             <Link to='/cart' className=" lg:p-8 p-2">
-             <img src={cart} alt="cart"/>
+             <Link to='/cart' className=" lg:p-8 p-2
+             transition duration-500 ease-in-out transform -translate-y-1 scale-80
+             ">
+             <img src={cartFull} alt="cart"/>
              
          </Link>
          )}

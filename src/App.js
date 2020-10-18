@@ -29,10 +29,21 @@ function App() {
       .catch((err) => console.log(err));
   }, [products]);
 
+  const addItem = (item) => {
+    // add the given item to the cart
+    setCart([...cart, item]);
+  };
 
+  const removeItem = (item) => {
+    let cartList = cart.filter((element) => {
+      return element.id !== item.id;
+    });
+    setCart(cartList);
+  };
   return (
     <div className="font-quick lg:px-32">
-      <ProductContext.Provider value={{ products }}>
+      <ProductContext.Provider value={{ products, addItem }} >
+      <CartContext.Provider value={{ cart, removeItem }}>
         <Navigation inCart={cart} />
 
         {/* Routes */}
@@ -71,6 +82,7 @@ function App() {
             }}
           />
         </Switch>
+        </CartContext.Provider>
       </ProductContext.Provider>
     </div>
   );

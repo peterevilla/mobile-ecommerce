@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ShopList from "./components/ShopList";
+import { BrowserRouter as  Switch, Route} from "react-router-dom";
 import CartList from "./components/CartList";
-import { data } from "./data";
 import { ProductContext } from "./contexts/ProductContext";
 import { CartContext } from "./contexts/CartContext";
 import { useLocalStorage } from "./hooks/useLocalStorage";
@@ -14,9 +12,10 @@ import Bass from "./components/Bass";
 import Synth from "./components/Synth";
 import axios from "axios";
 
+
 function App() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useLocalStorage("cart", []);
 
   useEffect(() => {
     axios
@@ -32,6 +31,7 @@ function App() {
   const addItem = (item) => {
     // add the given item to the cart
     setCart([...cart, item]);
+    alert("Item added to cart")
   };
 
   const removeItem = (item) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import { BrowserRouter as  Switch, Route} from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import CartList from "./components/CartList";
 import { ProductContext } from "./contexts/ProductContext";
 import { CartContext } from "./contexts/CartContext";
@@ -31,7 +31,7 @@ function App() {
   const addItem = (item) => {
     // add the given item to the cart
     setCart([...cart, item]);
-    alert("Item added to cart")
+    alert("Item was added to cart")
   };
 
   const removeItem = (item) => {

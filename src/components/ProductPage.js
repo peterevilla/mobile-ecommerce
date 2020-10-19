@@ -21,6 +21,9 @@ function ProductPage(props) {
           <h1 className="text-3xl font-light">{item.name}</h1>
           <p className="text-3xl font-light">Price: ${item.price}</p>
           <p className="text-justify my-10">{item.description}</p>
+          <p className="text-justify ">Make: {item.make}</p>
+          <p className="text-justify ">Some Features: {item.features}</p>
+
          
           <a href="#" ><div className=" h-10 py-1 border-black border hover:bg-black hover:text-white my-3 w-full">
             <p className="text-center" onClick={() => addItem(item)}>add to cart</p>
